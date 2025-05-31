@@ -58,8 +58,7 @@ You can view the database schema diagram for the PetCareManager project here:
 
 Watch a demo of the PetCareManager project in action:
 
-[Demo Video ](https:-link)
-
+[Demo Video ](https://drive.google.com/file/d/1F7eWi4ZghgsQ95DoMilsgt4UyH0koV39/view?usp=sharing)
 
 ## Author
 Name: Dominic Kipkorir  
