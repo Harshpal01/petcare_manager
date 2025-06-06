@@ -1,52 +1,83 @@
 ## PetCareManager
 PetCareManager is a CLI-based application designed to help users manage pet care data, including clinics, pets, appointments, and pet visits. It leverages a modular Python codebase with SQLAlchemy ORM and Alembic for database migrations.
 ## Features
-1.Manage Clinics, Pets, Appointments, and Clinic Pet Visits
+1. Pet Management
+ Add a Pet: Users can register new pets by providing:
 
-2.Robust input validation helpers for user-friendly CLI experience
+ Name
 
-3.Modular and extensible architecture using Python packages
+ Species (e.g., Dog, Cat)
 
-4.SQLite database support with Alembic migrations for schema management
+ Breed
 
-5.Easy to run and extend for further pet care management features
+ Age
+
+ Owner's Name
+
+ View Pets: Lists all pets currently stored in the database with their details.
+
+ Update Pet Info: Allows editing pet details if there's a change (e.g., updated owner name or age).
+
+ Delete a Pet: Removes a pet and its associated records (like appointments and visits, if cascaded properly).
+
+2. Clinic Management
+ Add a Clinic: Register a new clinic by entering:
+
+ Clinic Name
+
+ Address
+
+ Phone Number
+
+ View Clinics: Displays all registered veterinary clinics.
+
+ Update Clinic Info: Modify clinic name, location, or contact number.
+
+Delete a Clinic: Removes a clinic and optionally its appointments/visits.
+
+3. Appointment Scheduling
+ Create Appointment: Link a pet to a clinic by selecting from available IDs, and provide:
+
+ Appointment date & time
+
+ Reason for the visit (e.g., Vaccination, Checkup)
+
+ View Appointments: List all appointments with pet and clinic details.
+
+ Delete Appointment: Cancel a scheduled visit
+
+4. Clinic Pet Visit Records
+ Log Visit: After an appointment or walk-in, users can log notes from a visit (e.g., diagnosis, prescriptions).
+
+ View Visits: List past clinic visits by pet and clinic, along with visit notes.
+
+ Delete Visit Record: Remove incorrect or outdated visit logs.
 
 ## Installation
-Clone the repository:
-git clone git@github.com:Harshpal01/petcare_manager.git
-cd petcare_manager
+ Clone the repository:
+ git clone git@github.com:Harshpal01/petcare_manager.git
+ cd petcare_manager
 # Create and activate a virtual environment (recommended): 
 python -m venv venv
 source venv/bin/activate 
 
 # Install dependencies:
-pipenv install
-pipenv shell
+   pip install Pipfile
+
+# Run migrations:
+    cd lib
+    alembic upgrade head
+# Seed dat on the project root
+    python lib/seed.py
 
 # Usage
-Run the CLI application: python -m lib.cli
+ Run the CLI application: 
+ python -m lib.cli
 
-## Project Structure
-
-petcare_manager/
-├── lib/
-│   ├── cli.py               # Command-line interface entry point
-│   ├── helpers.py           # Input validation helper functions
-│   └── models/              # SQLAlchemy models (Clinic, Pet, Appointment, etc.)
-├── db/
-│   └── migrations/          # Alembic migration scripts
-├── petcare.db               # SQLite database file
-├── seed.py                  # Script to populate initial data (optional)
-├── README.md                # This file
-├── Pipfile / Pipfile.lock   # Dependency management files
-└── test_clinic.py           # Sample test file
-
-## Database
-Uses SQLite (petcare.db) as default database
-
-Alembic is configured for database migrations
-
-To apply migrations: alembic upgrade head
+## Testing
+ Run all tests:
+pytest
+  
 
 ## Database Schema
 

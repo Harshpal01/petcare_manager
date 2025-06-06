@@ -2,12 +2,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from lib.models.clinic import Clinic
-from lib.models.pet import Pet
-from lib.models.appointment import Appointment
-from lib.models.clinic_pet_visit import ClinicPetVisit
-from lib.models.base import SessionLocal
-from .helpers import input_int, input_date, input_string
+from lib.base import SessionLocal
+from lib.models import Clinic, Pet, Appointment, ClinicPetVisit
 from datetime import datetime
 
 
